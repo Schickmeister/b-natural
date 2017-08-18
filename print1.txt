@@ -1,0 +1,4 @@
+(set IMP/chord mappings)(stack manipulation | udu | du | termination) (I/O | ud) 
+(flow control | ddd) goes to
+
+(Add 1 to stack) (print top element of stack) (end program)

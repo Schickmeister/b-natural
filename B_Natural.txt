@@ -1,0 +1,130 @@
+B♮
+
+An example of chord mappings:
+
+Stack Manipulation: I
+Arithmetic: V
+Flow Control: vi
+Variables: IV
+IO: vii°
+
+The first four chords played by the left hand in the program are mapped, in this order, to the ICMs.
+
+==================
+Literals
+==================
+A U or D is an increase or decrease in pitch on the right hand. Staying in place counts as a D. If multiple notes are being played at the same time, and are moving in opposite directions, the move with greater magnitude is used as the direction. If the magnitudes are equal, it’s the same as staying in place. A change in number of notes always uses the first chord as an initial value to compare to, not as a U or D.
+
+Numbers are a sequence of Us and Ds. Ds are 0, and Us are 1. The first bit is a sign bit, 0 for positive and 1 for negative. 
+
+Labels and variables are any sequence of keys on the right hand.
+
+Numbers are terminated by the stack manipulation chord. Variables are terminated by the variable chord. Labels are terminated by the flow control chord.
+
+==================
+Stack Manipulation
+==================
+The push command expects a number to be played immediately after
+
+Push a number on	UDU	101
+Duplicate		UUU	111
+Swap			DUD	010
+Rotate Left		DUU	011
+Rotate Right		UDD	100
+Drop			UUD	110
+
+==================
+Arithmetic
+==================
+
+	Manipulation		U	1
+	=================
+	Addition +		UUU	111
+	Subtraction -		DDD	000
+	Multiplication *	UDD	100
+	Integer division /	UDU	101
+	Floating point division UUD	110
+	Modulo %		DUD	010
+	Exponentiation **	DUU	011
+
+	Comparison		D	0
+	=================
+	Less than <		UUU	111
+	Greater than >		UUD	110
+	Equal to ==		UDD	100
+	Not equal to !=		DDD	000
+	And &&			DDU	001
+	Or ||			DUU	011
+
+==================
+Flow Control
+==================
+All of these commands except “end program” expect a label to be played immediately after
+
+Set a label		UUU	111
+Call a subroutine	UUD	110
+Jump to a label		UDD	100
+Jump to a label if 
+nonzero			DUU	011
+End subroutine 
+(back to caller)	DDU	001
+End program		DDD	000
+
+==================
+Variables
+==================
+These commands expect a variable to be played immediately after. The “store” command stores the first value on the stack.
+
+Store			U	1
+Retrieve		D	0
+
+==================
+I/O
+==================
+Print the top character
+on the stack		UU	11
+Print the top number
+on the stack		UD	10
+Read in a character and
+put it on the stack	DU	01
+Read in a number and 
+put it on the stack	DD	00
+
+===========================
+
+List of commands
+
+
+COMMAND		INTERPRETER	PARSER
+
+push		✓		
+dup		✓		
+swap		✓		
+rotl		✓		
+rotr		✓		
+drop		✓		
+plus		✓		
+minus		✓		
+times		✓		
+div		✓		
+idiv		✓		
+mod		✓		
+pow		✓		
+less		✓		
+greater		✓		
+eq		✓		
+neq		✓		
+and		✓		
+or		✓		
+set_lbl		✓		
+jmp_lbl		✓		
+jmp_lbl_if	✓		
+call_sub	✓		
+end_sub		✓		
+exit		✓		
+save_var	✓		
+get_var		✓		
+print_char	✓		
+print_int	✓		
+read_char	✓		
+read_int	✓		

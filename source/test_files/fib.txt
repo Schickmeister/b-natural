@@ -1,0 +1,1 @@
+read_int push 2 minus save_var 0 push 0 save_var 1 push 1 save_var 2 push 0 print_int push 1 print_int set_lbl 0 get_var 1 get_var 2 plus get_var 2 save_var 1 dup save_var 2 print_int get_var 0 push 1 minus dup save_var 0 jmp_lbl_if 0 exit
